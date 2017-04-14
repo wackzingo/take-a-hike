@@ -3,3 +3,5 @@ const LOCATION_TRAITS = ["BASEBALL INFIELD", "COMMUNITY GARDEN POINT",
                          "DOG BAG", "BASKETBALL", "TRAIL PATH",
                          "EXERCISE", "OFF LEASH AREA", "SPRAYGROUND",
                          "PLAYGROUND", "SKATE AREA"]
+
+console.log("tkh-constants.js loaded.");
