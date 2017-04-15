@@ -2,9 +2,6 @@ Hello, World!
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
 <script>
-
-$.getScript("https://raw.githubusercontent.com/keithstellyes/take-a-hike/master/tkh-constants.js");
-
   alert(-1);
   const LOCATION_TRAITS = ["BASEBALL INFIELD", "COMMUNITY GARDEN POINT",
                          "PICNIC SHELTER", "BIKE RACK", "TENNIS COURT",
@@ -12,8 +9,9 @@ $.getScript("https://raw.githubusercontent.com/keithstellyes/take-a-hike/master/
                          "EXERCISE", "OFF LEASH AREA", "SPRAYGROUND",
                          "PLAYGROUND", "SKATE AREA"];
 
+var s = $.get("https://raw.githubusercontent.com/keithstellyes/take-a-hike/master/tkh-constants.js");
 
-alert(2);
+alert(s);
 
  
 /*
