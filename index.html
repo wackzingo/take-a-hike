@@ -31,9 +31,12 @@ function getTraitJSON(trait) {
     'COMMUNITY GARDEN POINT': 'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_0.geojson'
     };
 
-    d = ''
+    done = false
 
-    $.get(traitsJsonUrls[trait], function(data) { console.log(data); d = JSON.parse(data);})
+    d = $.getJSON(traitsJsonUrls[trait], function() { done = true; })
+    
+    while(!done) {
+    }
 
 return d;
 }
@@ -60,9 +63,6 @@ var results = [];
 }
 
 function TESTgetLocationsWithTrait() {
-
-  var tdata = {'features':[{'properties':{'LOCATION':'APPLE PARK'}} , { 'properties':{'LOCATION':'PEAR PARK'}}]};
-
   var tresults = getLocationsWithTrait("BASEBALL INFIELD");
 
   var t1 = results.length == 27;
