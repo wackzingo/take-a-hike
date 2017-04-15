@@ -27,11 +27,11 @@ function parkHasTrait(park, trait) {
  * Return the object for a trait (parsed from a JSON)
  */
 function getTraitJSON(trait) {
-const traitsJsonUrls = { 'BASEBALL INFIELD':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_5.geojson'};
+    const traitsJsonUrls = { 'BASEBALL INFIELD':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_5.geojson'};
 
-d = ''
+    d = ''
 
-$.get(traitsJsonUrls[trait], function(data) { console.log(data); d = JSON.parse(data);})
+    $.get(traitsJsonUrls[trait], function(data) { console.log(data); d = JSON.parse(data);})
 
 return d;
 }
@@ -61,7 +61,7 @@ function TESTgetLocationsWithTrait() {
 
   var tdata = {'features':[{'properties':{'LOCATION':'APPLE PARK'}} , { 'properties':{'LOCATION':'PEAR PARK'}}]};
 
-  var tresults = getLocationsWithTrait('BASEBALL INFIELD');
+  var tresults = getLocationsWithTrait(tdata.toString());
 
   var t1 = results.length == 2;
   var t2 = results[0] === 'APPLE PARK';
