@@ -33,10 +33,15 @@ function getTraitJSON(trait) {
 
     done = false
 
-    d = $.getJSON(traitsJsonUrls[trait]).responseJSON;
+    var Httpreq = new XMLHttpRequest(); // a new request
+    Httpreq.open("GET",traitsJsonUrls[trait],false);
+    Httpreq.send(null);
+    d = JSON.parse(Httpreq.responseText);   
+    //d = $.getJSON(traitsJsonUrls[trait]).responseJSON;
 
     while(!d) {
     }
+    console.log(-42);
 return d;
 }
 
