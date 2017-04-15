@@ -77,7 +77,7 @@ var results = [];
      
      console.log(traitJsonObj);
  
-    for (i = 0; i < traitJsonObj['features'].length; i++) {
+    for (i = 0; i < traitJsonObj['features'].size(); i++) {
         results[i] = traitJsonObj['features'][i]['properties']['LOCATION'];
     }
 
