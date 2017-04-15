@@ -33,10 +33,7 @@ function getTraitJSON(trait) {
 
     done = false
 
-    d = $.getJSON(traitsJsonUrls[trait], function() { done = true; })
-    
-    while(!done) {
-    }
+    d = $.getJSON(traitsJsonUrls[trait]);
 
 return d;
 }
