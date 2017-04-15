@@ -1,1 +1,49 @@
 Hello, World!
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js">
+const LOCATION_TRAITS = ["BASEBALL INFIELD", "COMMUNITY GARDEN POINT",
+                         "PICNIC SHELTER", "BIKE RACK", "TENNIS COURT",
+                         "DOG BAG", "BASKETBALL", "TRAIL PATH",
+                         "EXERCISE", "OFF LEASH AREA", "SPRAYGROUND",
+                         "PLAYGROUND", "SKATE AREA"];
+
+
+alert.log(42);
+console.log(1);
+  
+/*
+ * DO NOT MODIFY PASSED IN VARIABLES PLEASE! :)
+ */
+
+/*
+ * Return true if the park (a string) has a trait (also a string)
+ */
+function parkHasTrait(park, trait) {
+    return getLocationsWithTrait(trait).indexOf(park) != -1;
+}
+
+/*
+ * Return the object for a trait (parsed from a JSON)
+ */
+function getTraitJSON(trait) {
+const traitsJsonUrls = { 'BASEBALL FIELD':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_5.geojson'}
+
+return traitsJsonUrls[trait];
+}
+
+/*
+ * Uses getTraitJSON(trait), then 
+ */
+function getLocationsWithTrait(trait) {
+/*
+ * Loop through all the features
+*/
+
+const traitJsonObj = JSON.parse(getTraitJSON(trait));
+
+
+}
+
+
+
+
+</script>
