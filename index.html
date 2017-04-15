@@ -40,7 +40,25 @@ function getTraitJSON(trait) {
                            'SPRAYGROUND':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_9.geojson',
                            'PLAYGROUND':'https://opendata.arcgis.com/datasets/ddda5d90143b4264ab8615f7b24e4cfc_9.geojson',
                            'SKATE AREA':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_8.geojson'  };
-return d;
+    
+    function getJSON(url) {
+        var resp ;
+        var xmlHttp ;
+
+        resp  = '' ;
+        xmlHttp = new XMLHttpRequest();
+
+        if(xmlHttp != null)
+        {
+            xmlHttp.open( "GET", url, false );
+            xmlHttp.send( null );
+            resp = xmlHttp.responseText;
+        }
+
+        return resp ;
+    }
+    
+    return getJSON(traitsJsonUrls[trait]);
 }
 
 /*
