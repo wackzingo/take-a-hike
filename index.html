@@ -31,7 +31,7 @@ const traitsJsonUrls = { 'BASEBALL INFIELD':'https://opendata.arcgis.com/dataset
 
 d = ''
 
-$.get(traitsJsonUrls[trait], function(data) { d = JSON.parse(data);})
+$.get(traitsJsonUrls[trait], function(data) { console.log(data); d = JSON.parse(data);})
 
 return d;
 }
