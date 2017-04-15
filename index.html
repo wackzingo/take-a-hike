@@ -55,7 +55,7 @@ function getTraitJSON(trait) {
             resp = xmlHttp.responseText;
         }
 
-        return resp ;
+        return JSON.parse(resp);
     }
     
     return getJSON(traitsJsonUrls[trait]);
