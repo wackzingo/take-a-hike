@@ -38,17 +38,19 @@ return traitsJsonUrls[trait];
  */
 function getLocationsWithTrait(trait) {
 
-//const traitJsonObj = JSON.parse(getTraitJSON(trait));
-const traitJsonObj = JSON.parse('{"features":[{"PROPERTIES":{"LOCATION":"APPLE PARK"}},{"PROPERTIES":{"LOCATION":"PEAR PARK"}}]}');
+const traitJsonObj = JSON.parse(getTraitJSON(trait));
+//const traitJsonObj = JSON.parse('{"features":[{"PROPERTIES":{"LOCATION":"APPLE PARK"}},{"PROPERTIES":{"LOCATION":"PEAR PARK"}}]}');
 
 var results = [];
 
-document.write(traitJsonObj['features'][0]['PROPERTIES']['LOCATION']);
-document.write(traitJsonObj.toString());
-// for (int i = 0; i < traitJsonObj['features'].length; i++) {
-// 	//results[i] = traitJsonObj['features'][i]['properties']['LOCATION'];
-//   //document.write
-// }
+document.write(traitJsonObj['features'].keys());
+
+for (int i = 0; i < traitJsonObj['features'].length; i++) {
+	// results[i] = traitJsonObj['features'][i]['properties']['LOCATION'];
+  // document.write
+}
+
+
 
 
 /*
