@@ -89,8 +89,8 @@ var results = [];
 function TESTgetLocationsWithTrait() {
   var tresults = getLocationsWithTrait("BASEBALL INFIELD");
 
-  var t1 = results.length == 27;
-  var t2 = results.indexOf('JEFFERSON PARK') != -1;
+  var t1 = tresults.length == 27;
+  var t2 = tresults.indexOf('JEFFERSON PARK') != -1;
   var t3 = true;
   
   return t1 && t2 && t3;
