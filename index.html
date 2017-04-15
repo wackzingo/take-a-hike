@@ -1,10 +1,10 @@
+<script>alert(-3);</script>
+
 Hello, World!
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js">
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js">-- -->
 
-</script>
-
-<script>
+  alert(-1);
   const LOCATION_TRAITS = ["BASEBALL INFIELD", "COMMUNITY GARDEN POINT",
                          "PICNIC SHELTER", "BIKE RACK", "TENNIS COURT",
                          "DOG BAG", "BASKETBALL", "TRAIL PATH",
@@ -13,7 +13,8 @@ Hello, World!
 
 
 alert(2);
-  
+
+ 
 /*
  * DO NOT MODIFY PASSED IN VARIABLES PLEASE! :)
  */
@@ -29,7 +30,7 @@ function parkHasTrait(park, trait) {
  * Return the object for a trait (parsed from a JSON)
  */
 function getTraitJSON(trait) {
-const traitsJsonUrls = { 'BASEBALL INFIELD':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_5.geojson'}
+const traitsJsonUrls = { 'BASEBALL INFIELD':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_5.geojson'};
 
 return traitsJsonUrls[trait];
 }
@@ -41,19 +42,19 @@ function getLocationsWithTrait(trait) {
 
 const traitJsonObj = JSON.parse(getTraitJSON(trait));
 
-var results = []
+var results = [];
 
 /*
 * iterate through traitsJsonObj, appending each location to results
  * traitJsonObj['features'][i]['properties']['LOCATION']
  */
 
-return results
+return results;
 }
 
 function TESTgetLocationsWithTrait() {
 
-  var tdata = {'features':[{'properties':{'LOCATION':'APPLE PARK'}} , { 'properties':{'LOCATION':'PEAR PARK'}]};
+  var tdata = {'features':[{'properties':{'LOCATION':'APPLE PARK'}} , { 'properties':{'LOCATION':'PEAR PARK'}}]};
 
   var tresults = getLocationsWithTrait('BASEBALL INFIELD');
 
@@ -62,5 +63,7 @@ function TESTgetLocationsWithTrait() {
   var t3 = results[1] === 'PEAR PARK';
 
   return t1 && t2 && t3;
-  }
-  </script>
+}
+
+</script>
+
