@@ -20,28 +20,26 @@ TESTgetLocationsWithTrait());
  * Return true if the park (a string) has a trait (also a string)
  */
 function parkHasTrait(park, trait) {
-    return getLocationsWithTrait(trait).indexOf(park) != -1;
+    return getLocationsWithTrait(trait).indexOf(park) != -1; 
 }
 
 /*
  * Return the object for a trait (parsed from a JSON)
  */
 function getTraitJSON(trait) {
-    const traitsJsonUrls = { 'BASEBALL INFIELD':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_5.geojson',
-    'COMMUNITY GARDEN POINT': 'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_0.geojson'
-    };
-
-    done = false
-
-    var Httpreq = new XMLHttpRequest(); // a new request
-    Httpreq.open("GET",traitsJsonUrls[trait],false);
-    Httpreq.send(null);
-    d = JSON.parse(Httpreq.responseText);   
-    //d = $.getJSON(traitsJsonUrls[trait]).responseJSON;
-
-    while(!d) {
-    }
-    console.log(-42);
+   const traitsJsonUrls = { 'BASEBALL INFIELD':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_5.geojson', 
+                           'COMMUNITY GARDEN POINT':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_0.geojson',
+                           'PICNIC SHELTER':'https://opendata.arcgis.com/datasets/ddda5d90143b4264ab8615f7b24e4cfc_8.geojson',
+                           'BIKE RACK':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_4.geojson', 
+                           'TENNIS COURT':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_11.geojson' ,
+                           'DOG BAG':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_3.geojson',
+                           'BASKETBALL':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_10.geojson' ,
+                           'TRAIL PATH':'https://opendata.arcgis.com/datasets/ddda5d90143b4264ab8615f7b24e4cfc_5.geojson', 
+                           'EXERCISE':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_2.geojson',
+                           'OFF LEASH AREA':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_7.geojson',
+                           'SPRAYGROUND':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_9.geojson',
+                           'PLAYGROUND':'https://opendata.arcgis.com/datasets/ddda5d90143b4264ab8615f7b24e4cfc_9.geojson',
+                           'SKATE AREA':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_8.geojson'  };
 return d;
 }
 
