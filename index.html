@@ -2,17 +2,16 @@ Hello, World!
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
 <script>
-  alert(-1);
-  const ALOCATION_TRAITS = ["BASEBALL INFIELD", "COMMUNITY GARDEN POINT",
+console.log("begin");
+const LOCATION_TRAITS = ["BASEBALL INFIELD", "COMMUNITY GARDEN POINT",
                          "PICNIC SHELTER", "BIKE RACK", "TENNIS COURT",
                          "DOG BAG", "BASKETBALL", "TRAIL PATH",
                          "EXERCISE", "OFF LEASH AREA", "SPRAYGROUND",
                          "PLAYGROUND", "SKATE AREA"];
 
-$.get("https://raw.githubusercontent.com/keithstellyes/take-a-hike/master/tkh-constants.js",
-  function(data){ alert(data); window.eval(data); });
-
-alert(window.LOCATION_TRAITS);
+console.log("Test TESTgetLocationsWithTrait():", 
+TESTgetLocationsWithTrait());
+                         
 /*
  * DO NOT MODIFY PASSED IN VARIABLES PLEASE! :)
  */
@@ -30,7 +29,11 @@ function parkHasTrait(park, trait) {
 function getTraitJSON(trait) {
 const traitsJsonUrls = { 'BASEBALL INFIELD':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_5.geojson'};
 
-return traitsJsonUrls[trait];
+d = ''
+
+$.get(traitsJsonUrls[trait], function(data) { d = JSON.parse(data);})
+
+return d;
 }
 
 /*
@@ -42,12 +45,16 @@ const traitJsonObj = JSON.parse(getTraitJSON(trait));
 
 var results = [];
 
-/*
-* iterate through traitsJsonObj, appending each location to results
- * traitJsonObj['features'][i]['properties']['LOCATION']
- */
+    /*
+     * iterate through traitsJsonObj, appending each location to results
+     * traitJsonObj['features'][i]['properties']['LOCATION']
+     */
+ 
+    for (int i = 0; i < traitJsonObj['features'].length; i++) {
+        results[i] = traitJsonObj['features'][i]['properties']['LOCATION'];
+    }
 
-return results;
+    return results;
 }
 
 function TESTgetLocationsWithTrait() {
