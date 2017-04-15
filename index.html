@@ -9,7 +9,8 @@ Hello, World!
                          "EXERCISE", "OFF LEASH AREA", "SPRAYGROUND",
                          "PLAYGROUND", "SKATE AREA"];
 
-$.get("https://raw.githubusercontent.com/keithstellyes/take-a-hike/master/tkh-constants.js", function(data){ alert(data); eval(data); alert("!!"); });
+$.get("https://raw.githubusercontent.com/keithstellyes/take-a-hike/master/tkh-constants.js",
+  function(data){ alert(data); $.globalEval(data); alert("!!"); });
 
 alert(LOCATION_TRAITS);
 /*
