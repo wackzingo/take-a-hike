@@ -2,12 +2,17 @@
 
 Hello, World!
 
+<<<<<<< HEAD
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js">-- -->
 
 <script>
 
 alert(-1);
   const LOCATION_TRAITS = ["BASEBALL INFIELD", "COMMUNITY GARDEN POINT",
+=======
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js">
+const LOCATION_TRAITS = ["BASEBALL INFIELD", "COMMUNITY GARDEN POINT",
+>>>>>>> f5ce8142a75d7ee5f367b2ab0501a4bbd7d8ee52
                          "PICNIC SHELTER", "BIKE RACK", "TENNIS COURT",
                          "DOG BAG", "BASKETBALL", "TRAIL PATH",
                          "EXERCISE", "OFF LEASH AREA", "SPRAYGROUND",
@@ -15,7 +20,7 @@ alert(-1);
 
 
 alert(2);
-  
+
 /*
  * DO NOT MODIFY PASSED IN VARIABLES PLEASE! :)
  */
@@ -37,19 +42,23 @@ return traitsJsonUrls[trait];
 }
 
 /*
- * Uses getTraitJSON(trait), then 
+ * Uses getTraitJSON(trait), then
  */
 function getLocationsWithTrait(trait) {
 
 const traitJsonObj = JSON.parse(getTraitJSON(trait));
 
-var results = []
+
+var results = [];
+
+for (int i = 0; i < traitJsonObj['features'].length; i++) {
+	results[i] = traitJsonObj['features'][i]['properties']['LOCATION'];
+}
 
 /*
 * iterate through traitsJsonObj, appending each location to results
  * traitJsonObj['features'][i]['properties']['LOCATION']
  */
-
 return results
 }
 
