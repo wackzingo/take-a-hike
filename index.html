@@ -35,6 +35,8 @@ function getTraitJSON(trait) {
 
     d = $.getJSON(traitsJsonUrls[trait]).responseJSON;
 
+    while(!d) {
+    }
 return d;
 }
 
