@@ -1,9 +1,7 @@
-<script></script>
-
-Hello, World!
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script>
+console.log("begin");
+
 const LOCATION_TRAITS = ["BASEBALL INFIELD", "COMMUNITY GARDEN POINT",
                          "PICNIC SHELTER", "BIKE RACK", "TENNIS COURT",
                          "DOG BAG", "BASKETBALL", "TRAIL PATH",
@@ -11,7 +9,8 @@ const LOCATION_TRAITS = ["BASEBALL INFIELD", "COMMUNITY GARDEN POINT",
                          "PLAYGROUND", "SKATE AREA"];
 
 
-
+console.log("Test TESTgetLocationsWithTrait():");
+TESTgetLocationsWithTrait();
 
 /*
  * DO NOT MODIFY PASSED IN VARIABLES PLEASE! :)
@@ -28,9 +27,38 @@ function parkHasTrait(park, trait) {
  * Return the object for a trait (parsed from a JSON)
  */
 function getTraitJSON(trait) {
-const traitsJsonUrls = { 'BASEBALL INFIELD':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_5.geojson'}
+   const traitsJsonUrls = {'BASEBALL INFIELD':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_5.geojson',
+                           'COMMUNITY GARDEN POINT':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_0.geojson',
+                           'PICNIC SHELTER':'https://opendata.arcgis.com/datasets/ddda5d90143b4264ab8615f7b24e4cfc_8.geojson',
+                           'BIKE RACK':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_4.geojson',
+                           'TENNIS COURT':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_11.geojson' ,
+                           'DOG BAG':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_3.geojson',
+                           'BASKETBALL':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_10.geojson' ,
+                           'TRAIL PATH':'https://opendata.arcgis.com/datasets/ddda5d90143b4264ab8615f7b24e4cfc_5.geojson',
+                           'EXERCISE':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_2.geojson',
+                           'OFF LEASH AREA':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_7.geojson',
+                           'SPRAYGROUND':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_9.geojson',
+                           'PLAYGROUND':'https://opendata.arcgis.com/datasets/ddda5d90143b4264ab8615f7b24e4cfc_9.geojson',
+                           'SKATE AREA':'https://opendata.arcgis.com/datasets/247885b5e1fe4e86bb2d6ab886dd1b8f_8.geojson'  };
 
-return traitsJsonUrls[trait];
+    function getJSON(url) {
+        var resp ;
+        var xmlHttp ;
+
+        resp  = '' ;
+        xmlHttp = new XMLHttpRequest();
+
+        if(xmlHttp != null)
+        {
+            xmlHttp.open( "GET", url, false );
+            xmlHttp.send( null );
+            resp = xmlHttp.responseText;
+        }
+
+        return JSON.parse(resp);
+    }
+
+    return getJSON(traitsJsonUrls[trait]);
 }
 
 /*
@@ -38,39 +66,34 @@ return traitsJsonUrls[trait];
  */
 function getLocationsWithTrait(trait) {
 
-const traitJsonObj = JSON.parse(getTraitJSON(trait));
-//const traitJsonObj = JSON.parse('{"features":[{"PROPERTIES":{"LOCATION":"APPLE PARK"}},{"PROPERTIES":{"LOCATION":"PEAR PARK"}}]}');
+
+var traitJsonObj = getTraitJSON(trait);
 
 var results = [];
 
-document.write(traitJsonObj['features'].keys());
+    /*
+     * iterate through traitsJsonObj, appending each location to results
+     * traitJsonObj['features'][i]['properties']['LOCATION']
+     */
 
-for (int i = 0; i < traitJsonObj['features'].length; i++) {
-	// results[i] = traitJsonObj['features'][i]['properties']['LOCATION'];
-  // document.write
-}
+    for (i = 0; i < traitJsonObj['features'].length; i++) {
+        results[i] = traitJsonObj['features'][i]['properties']['LOCATION'];
+    }
 
-
-
-
-/*
-* iterate through traitsJsonObj, appending each location to results
- * traitJsonObj['features'][i]['properties']['LOCATION']
- */
-return results;
+    return results;
 }
 
 function TESTgetLocationsWithTrait() {
+  var tresults = getLocationsWithTrait("BASEBALL INFIELD");
 
   var tdata = "{'features':[{'properties':{'LOCATION':'APPLE PARK'}} , { 'properties':{'LOCATION':'PEAR PARK'}]}";
 
   var tresults = getLocationsWithTrait('BASEBALL INFIELD');
 
-  var t1 = results.length == 2;
-  var t2 = results[0] === 'APPLE PARK';
-  var t3 = results[1] === 'PEAR PARK';
+  var t1 = tresults.length == 27;
+  var t2 = tresults.indexOf('JEFFERSON PARK') != -1;
+  var t3 = true;
 
   return t1 && t2 && t3;
-  }
-getLocationsWithTrait("Hey");
+}
   </script>
