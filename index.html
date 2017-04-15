@@ -37,7 +37,11 @@ function getLocationsWithTrait(trait) {
 
 const traitJsonObj = JSON.parse(getTraitJSON(trait));
 
-var results = []
+var results = [];
+
+for (int i = 0; i < traitJsonObj['features']; i++) {
+	results[i] = traitJsonObj['features'][i]['properties']['LOCATION'];
+}
 
 /*
 * iterate through traitsJsonObj, appending each location to results
