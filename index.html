@@ -1,8 +1,9 @@
-<script>alert(-3);</script>
+<script></script>
 
 Hello, World!
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script>
 const LOCATION_TRAITS = ["BASEBALL INFIELD", "COMMUNITY GARDEN POINT",
                          "PICNIC SHELTER", "BIKE RACK", "TENNIS COURT",
                          "DOG BAG", "BASKETBALL", "TRAIL PATH",
@@ -10,7 +11,7 @@ const LOCATION_TRAITS = ["BASEBALL INFIELD", "COMMUNITY GARDEN POINT",
                          "PLAYGROUND", "SKATE AREA"];
 
 
-alert(2);
+
 
 /*
  * DO NOT MODIFY PASSED IN VARIABLES PLEASE! :)
@@ -37,25 +38,29 @@ return traitsJsonUrls[trait];
  */
 function getLocationsWithTrait(trait) {
 
-const traitJsonObj = JSON.parse(getTraitJSON(trait));
-
+//const traitJsonObj = JSON.parse(getTraitJSON(trait));
+const traitJsonObj = JSON.parse('{"features":[{"PROPERTIES":{"LOCATION":"APPLE PARK"}},{"PROPERTIES":{"LOCATION":"PEAR PARK"}}]}');
 
 var results = [];
 
-for (int i = 0; i < traitJsonObj['features'].length; i++) {
-	results[i] = traitJsonObj['features'][i]['properties']['LOCATION'];
-}
+document.write(traitJsonObj['features'][0]['PROPERTIES']['LOCATION']);
+document.write(traitJsonObj.toString());
+// for (int i = 0; i < traitJsonObj['features'].length; i++) {
+// 	//results[i] = traitJsonObj['features'][i]['properties']['LOCATION'];
+//   //document.write
+// }
+
 
 /*
 * iterate through traitsJsonObj, appending each location to results
  * traitJsonObj['features'][i]['properties']['LOCATION']
  */
-return results
+return results;
 }
 
 function TESTgetLocationsWithTrait() {
 
-  var tdata = {'features':[{'properties':{'LOCATION':'APPLE PARK'}} , { 'properties':{'LOCATION':'PEAR PARK'}]};
+  var tdata = "{'features':[{'properties':{'LOCATION':'APPLE PARK'}} , { 'properties':{'LOCATION':'PEAR PARK'}]}";
 
   var tresults = getLocationsWithTrait('BASEBALL INFIELD');
 
@@ -65,4 +70,5 @@ function TESTgetLocationsWithTrait() {
 
   return t1 && t2 && t3;
   }
+getLocationsWithTrait("Hey");
   </script>
