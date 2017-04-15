@@ -5,3 +5,4 @@ var LOCATION_TRAITS = ["BASEBALL INFIELD", "COMMUNITY GARDEN POINT",
                          "PLAYGROUND", "SKATE AREA"]
 
 console.log("tkh-constants.js loaded.");
+alert.log("tkh-constants.js loaded");
